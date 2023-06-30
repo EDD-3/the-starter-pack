@@ -6,11 +6,11 @@ createInertiaApp({
   resolve: async (name) => {
     const pages = import.meta.glob('./Pages/**/*.vue')
 
-    const page = await pages[`./Pages/${name}.vue`]();
+    const page = await pages[`./Pages/${name}.vue`]()
     //Setting a defaul layout for the pages
     //Any exported module uses the default property
-    page.default.layout = page.default.layout || MainLayout;
-    return page;
+    page.default.layout = page.default.layout || MainLayout
+    return page
   },
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
