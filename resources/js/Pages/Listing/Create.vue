@@ -17,7 +17,7 @@
       </div>
   
       <div>
-        <labe>City</labe>
+        <label>City</label>
         <input v-model="form.city" type="text" />
       </div>
   
