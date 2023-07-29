@@ -97,7 +97,7 @@ const form = useForm({
   price:0,
 })
 
-const create = () => form.post('/listing', form)
+const create = () => form.post(route('listing.store'), form)
 
 //Losing reactivity
 // const x = form.bed
