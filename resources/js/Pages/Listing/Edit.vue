@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="create">
+  <form @submit.prevent="update">
     <div>
       <div>
         <label>Beds</label>
@@ -66,7 +66,7 @@
       </div>
   
       <div>
-        <button type="submit">Create</button>
+        <button type="submit">Edit</button>
       </div>
     </div>
   </form>
@@ -86,18 +86,22 @@
   price:0,
 })*/
 import {useForm} from '@inertiajs/inertia-vue3'
-const form = useForm({
-  beds:0,
-  baths: 0,
-  area: 0,
-  city: null,
-  street: null,
-  code: null,
-  street_nr: 0,
-  price:0,
+const props = defineProps({
+  listing: Object,
 })
 
-const create = () => form.post('/listing', form)
+const form = useForm({
+  beds: props.listing.beds,
+  baths: props.listing.baths,
+  area: props.listing.area,
+  city: props.listing.city,
+  street: props.listing.street,
+  code: props.listing.code,
+  street_nr: props.listing.street_nr,
+  price:props.listing.price,
+})
+
+const update = () => form.put(`/listing/${props.listing.id}`, form)
 
 //Losing reactivity
 // const x = form.bed
