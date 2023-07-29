@@ -5,7 +5,8 @@
         <ListingAddress :listing="listing" />
       </Link>
     </div>
-    <Link :href="`/listing/${listing.id}/edit`"> Edit </Link>
+    <Link :href="`/listing/${listing.id}/edit`" as="button"> Edit </Link>
+    <Link :href="`/listing/${listing.id}`" method="DELETE" as="button">Delete</Link>
   </div>
 </template>
 
